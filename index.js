@@ -28,12 +28,6 @@ app.post('/submit' , (req,res) => {
 
 app.post('/delete/:id', (req,res) => {
     const blogId = parseInt(req.params.id);
-    blogs = blogs.filter(blog => blog.id !== blogId);
-    res.redirect('/');
-});
-
-app.get('/edit/:id',(req,res) => {
-    const blogId = parseInt(req.params.id);
     const blogToEdit = blogs.find(blog => blog.id === blogId);
     res.render('edit.ejs', {blog:blogToEdit});
 });
